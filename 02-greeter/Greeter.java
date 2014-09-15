@@ -7,3 +7,7 @@ public class Greeter {
 	System.out.println("Hello world!");
     }
 }
+
+/*
+I greet you!
+*/
