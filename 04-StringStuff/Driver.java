@@ -1,11 +1,11 @@
 public class Driver {
     public static void main(String[] args) {
 	Codingbat object1 = new Codingbat();
-	Codingbat.mixStart("9ix");
+	System.out.println(object1.mixStart("9ix"));
 	System.out.println("^Expected true");
-	Codingbat.makeOutWord("<<>>", "leon");
+	System.out.println(object1.makeOutWord("<<>>", "leon"));
 	System.out.println("^Expected <<leon>>");
-	Codingbat.firstHalf("Boohoo");
+	System.out.println(object1.firstHalf("Boohoo"));
 	System.out.println("^Expected Boo");
     }
 }
