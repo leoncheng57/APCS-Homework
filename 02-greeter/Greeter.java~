@@ -1,0 +1,9 @@
+
+import java.io.*;
+import java.util.*;
+
+pubilc class Greeter {
+    pubilc void greet() {
+	System.out.println("Hello world!");
+    }
+}
