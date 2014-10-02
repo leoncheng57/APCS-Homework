@@ -1,0 +1,14 @@
+public class Shapes {
+    public String tri2(int h) {
+	itn row = 0;
+	int i;
+	String s = "";
+	
+	row = 2; //just testing
+
+	//one row
+	for (i=1,i<=h-row,i=i+1){
+	    s=s+".";
+	}
+    }
+}

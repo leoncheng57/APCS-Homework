@@ -1,5 +1,8 @@
-public class Shapes {
-   
+//NOTE: USE BOTH FOR AND WHILE LOOPS
+
+
+public class Shapes { 
+  
     public String tri3 (int h) {
 	int i = 0;
 	int x = 0;

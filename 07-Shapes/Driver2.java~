@@ -1,0 +1,6 @@
+public Driver2 {
+    public static void main(String[] args){
+	Shapes2 s = new Shapes2();
+	System.out.println(s.tri2(5));
+    }
+}
