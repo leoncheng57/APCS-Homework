@@ -33,6 +33,42 @@ public class Shapes {
 	}
 	return s;
     }
+	//CODINGBAT PROB: http://codingbat.com/prob/p117334
+	public String stringSplosion(String str) {
+	    String s = "";
+	    //following is done with a while loop
+	    int i = 0;
+	    while (i<str.length()) {
+		s=s+str.substring(0,i+1);
+		i=i+1;
+	    }
+
+	    //following is done with a for loop
+	    /*
+	      for (int i = 0; i<str.length(); i = i+1) {
+	      s=s+str.substring(0,i+1);
+	      }
+	    */
+	    return s;
+	}
+
+	//CODINGBAT PROB: http://codingbat.com/prob/p171260
+	public String stringX(String str) {
+	    if (str==""){
+		return "";
+	    }
+	    if (str=="x") {
+		return "x";
+	    }
+  
+	    String s ="";
+	    for (int i = 1; i<str.length()-1; i=i+1) { //letting i = 1 and using str.length()-1 makes this loop ignore the first and last char of the string
+		if (str.substring(i,i+1).equals("x") == false){
+		    s=s+str.substring(i,i+1);
+		}
+	    }
+	    return str.substring(0,0+1)+s+str.substring(str.length()-1,str.length());
+	}
 }
 
 

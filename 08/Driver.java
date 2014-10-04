@@ -13,6 +13,14 @@ public class Driver {
 	System.out.println(obj.frame(4,1));
 	System.out.println("0,4");
 	System.out.println(obj.frame(0,4));
+
+	System.out.println();
+	System.out.println(obj.stringSplosion("Hello"));
+
+	System.out.println();
+	System.out.println(obj.stringX("xaxxxxxxbcx"));
+
+
     }
 }
 
