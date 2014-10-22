@@ -33,7 +33,7 @@ public class Labyrinth extends World{
 	
 	
 	    int randNum = (int)(Math.random() * 100);
-	    System.out.println(randNum);
+	    //System.out.println(randNum);
 	
 
 	    Monster m = new Monster();
@@ -58,5 +58,8 @@ public class Labyrinth extends World{
 	    bat.monsterAttackChar(m,b);	    
 
 	}
+	
+	System.out.println("YOU WIN!!!");
+	
     }
 }

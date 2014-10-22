@@ -50,9 +50,9 @@ public class Driver{
         System.out.println("When we say make a move, we mean type move");
         Labyrinth lab = new Labyrinth();
         lab.quest();
-    	System.out.println( lab.getStage() );
-	lab.setStage(100);
-	System.out.println( lab.getStage() );
+    	//System.out.println( lab.getStage() );
+	//lab.setStage(100);
+	//System.out.println( lab.getStage() );
     }
 }
 
