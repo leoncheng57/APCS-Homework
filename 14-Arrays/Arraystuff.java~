@@ -1,0 +1,40 @@
+public class Arraystuff {
+       
+    /*-------------------- Constructors --------------------*/ 
+    public Arraystuff(int n){
+	rnd = new Random();
+	a = new int[n];
+	for (int i=0;i<a.length;i++){
+	    a[i] = 75+rnd.nextInt(76);
+	}
+    }
+    
+    public Arraystuff() {
+	this(100);
+    }
+
+    /*-------------------- Methods --------------------*/
+    public String toString(){
+	String s="";
+	for (int i=0;i<a.length;i++){
+	    s=s+a[i]+", ";
+	}
+	return s;
+    }
+
+
+    //int freq(i) - returns the number of times the element at a[i] occurs. So, if our array contains 3,2,4,5,6,2,3,4,1,2,3 starting with the three at index 0, freq(1) returns 3 because the element at location 1, a 2 (a1 has a 2) occurs 3 times.
+    // public int freq(int i){
+    // 	for (int n=0;n<a.length
+    // }
+
+
+    //Codingbat Problems
+    
+    
+
+    public static void main(String[] args) {
+	Arraystuff as = new Arraystuff();
+	System.out.println(as);
+    }
+}
