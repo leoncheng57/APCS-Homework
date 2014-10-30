@@ -98,25 +98,24 @@ public class Arraystuff {
 	for (int i=0;i+2<nums.length;i++){ //i+2<nums.length makes sure it never goes out of range
 	    if (nums[i] == nums[i+1]-1 &&
 		nums[i+1] == nums[i+2]-1) {
-		    return true;
+		return true;
 	    }
 	}
 	return false;
     }
 
-    //DOESN'T WORK
     // thoughts on the algorithm:
     // take sum, subtract first  element from sum, sum the subtracted elements, if total subtracted == sum after subtraction then return true
-    public boolean canBalance(int[] nums) {
-	int sum=0;
-	int subtractSum=0;
-	for (int i=0;i<nums.length;i++) {
-	    sum = sum + nums[i];
+    public boolean canBalance (int[] nums) {
+	int rightSum = 0;
+	int leftSum = 0;
+	for (int i=0;i<nums.length;i=i+1){
+	    rightSum = rightSum + nums[i];
 	}
-	for (int i=0;i<nums.length && sum!=subtractSum;i++){
-	    sum = sum-nums[i];
-	    subtractSum = sum+nums[i];
-	    if (sum==subtractSum) {
+	for (int i=0;i<nums.length;i=i+1){
+	    rightSum = rightSum - nums[i];
+	    leftSum = leftSum + nums[i];
+	    if (leftSum==rightSum) {
 		return true;
 	    }
 	}
