@@ -61,6 +61,7 @@ public class Arraystuff {
 	}
 	return f;
     }
+
     public boolean more14(int[] nums) {
 	int freq = 0;
 	int freq2 = 0;
@@ -131,6 +132,25 @@ public class Arraystuff {
 	    }
 	}
 	return ret;
+    }
+
+    //NOT WORKING
+    public int maxMirror(int[] nums) {
+	//make an array in reverse order
+	//match that array to the original array
+	int[] reverse = new int[nums.length];
+	for (int i=0;i<reverse.length;i++){
+	    reverse[i]=nums[nums.length-i-1];
+	}
+	int count = 0;
+	for (int i=0;i<nums.length;i++) {
+	    for (int j=0;j<reverse.length;j++){
+		if (nums[i]==reverse[j]) {
+		    count++;
+		}
+	    }  
+	}
+	return count;
     }
 
 
