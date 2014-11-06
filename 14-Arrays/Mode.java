@@ -21,6 +21,7 @@ public class Mode {
 
     /* 
        n - size of the array
+ls
        m - max value for each entry
     */
     public Mode(int n,int m){
@@ -52,7 +53,7 @@ public class Mode {
 	return count;
     }
 
-    //less efficint way
+    //less efficient way
     public int mode(){
 	int count = 0;
 	int modeIndex = 0;
@@ -67,7 +68,7 @@ public class Mode {
     }
     
     //more efficient way (My attempt) (buckets algorithm)
-    public int mode2(int maxnum){
+    public int fastmode(int maxnum){
 	int[] intArray = new int[maxnum+1];
 	for (int i=0;i<a.length;i++){
 	    intArray[a[i]] += 1;
@@ -83,8 +84,7 @@ public class Mode {
 	return winnerIndex;
     }
 		
-    /*------------  main -------------*/
-		
+    /*------------  main -------------*/		
     public static void main(String[] args) {
 	int n=20,
 	    maxval=20;
@@ -98,11 +98,10 @@ public class Mode {
 
 	Mode m = new Mode(n,maxval);
 	//System.out.println(m);
-	System.out.println("modecount = "+m.mode());
+	//System.out.println("modecount = "+m.mode());
 
 	System.out.println();
-	System.out.println(m.mode2(maxval));
+	System.out.println(m.fastmode(maxval));
 
     }
-
 }
