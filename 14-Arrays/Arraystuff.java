@@ -155,38 +155,6 @@ public class Arraystuff {
 
 
 
-    // 11-05-14 CLASSWORK DONOW:
-    // int mode(A) that will return a mode of array A, test with array of 100 elements each an int between 0 and 20
-
-    // int maxVal() - return the largest value in the array
-    public int maxVal(int[] intArray){
-	//i'll be implementing the "knockout" method
-	int winner = intArray[0];
-	for (int i=0;i<intArray.length;i++){
-	    if (intArray[i]>winner){
-		winner = intArray[i];
-	    }
-	}
-	return winner;
-    }
-    // int find(n) - returns the index of the first occurence of n in the array or -1 if n isn't in the array.
-    public int find(int n,int[] intArray){
-	for (int i=0;i<intArray.length; i++){
-	    if (intArray[i]==n) {
-	    	return i;
-	    }
-	}
-	return -1;
-    }
-    public int mode(int[] intArray){
-	int[] freq = new int[21];
-	for (int i=0;i<intArray.length;i++){
-	    freq[intArray[i]] += 1;
-	}
-	return find(maxVal(freq),freq);
-    }
-
-    
     //MAIN
     public static void main(String[] args) {
 	Arraystuff as = new Arraystuff();

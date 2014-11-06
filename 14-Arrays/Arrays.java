@@ -35,6 +35,7 @@ public class Arrays{
     // 	return printArray(intArray);
     // }
 
+
     public static void main(String[] args){
 	Arrays a = new Arrays();	
 	// System.out.println(a.printIntArray());
@@ -46,6 +47,7 @@ public class Arrays{
 	System.out.println();
 
 	System.out.println(a.maxVal());  
+	System.out.println();
 	
     }
     
