@@ -25,6 +25,24 @@ public class Sarray{
 	s.remove(5); //remove
 	System.out.println(s);
 	System.out.println("the size is: " + s.size()); //size	
+
+	//Handling ERRORS
+	System.out.println();
+	System.out.println();
+     	try {
+	    //s.set(999,111);
+	    //s.get(999);
+	    //s.add(20,424242);
+	    //s.remove(999);
+	    System.out.println("run sucessfully");
+	    System.out.println(s);
+	} catch (IndexOutOfBoundsException e){
+	    System.out.println("IOB error: " + e);
+	} catch (ArithmeticException e){
+	    System.out.println("Arithmetic error: " + e);
+	} catch (Exception e){
+	    System.out.println("some other error: " +e);
+	}	
     }
     
     /*<----------------INSTANCE VARIABLES------------------->*/
@@ -122,6 +140,11 @@ public class Sarray{
     //sets the item at locaiton index to value i
     //returns the old value
     public int set (int index, int i) {
+	if (index>data.length){
+	    throw new ArrayIndexOutOfBoundsException();
+	    //throw new IndexOutOfBoundsException();
+	    //throw new ArithmeticException();
+	}
 	int ret = data[index];
 	data[index]=i;
 	return ret;
