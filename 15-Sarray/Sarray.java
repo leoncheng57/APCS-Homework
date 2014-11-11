@@ -30,6 +30,7 @@ public class Sarray{
 	System.out.println();
 	System.out.println();
      	try {
+            //uncomment the following lines to test them out
 	    //s.set(999,111);
 	    //s.get(999);
 	    //s.add(20,424242);
