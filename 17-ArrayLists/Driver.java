@@ -20,6 +20,10 @@ public class Driver{
     
 
 	//ARRAYS
-	
+        int[] a = new int[7];
+	for (int i=0;i<7;i++){
+	    a[i]=i;
+	}
+	System.out.println(a);	
     }
 }
