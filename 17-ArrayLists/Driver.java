@@ -1,29 +1,43 @@
 import java.util.*;
-
 public class Driver{
     public static void main(String[] args){
+
+	int customLength = 10; //here, user can set the length of the arraylist and array
+
 	//ARRAYLISTS
 	ArrayList<Integer> al = new ArrayList<Integer>();
-	System.out.println(al);
-	for(int i=0;i<10000;i++){
+	for(int i=0;i<customLength;i++){
 	    al.add(i);
 	}
-	System.out.println(al);
+	System.out.println("original: "+al);
 
 	ArrayList<Integer> ret = new ArrayList<Integer>();
-	System.out.println(ret);
 	Random r = new Random();
 	while (al.size()>0){
 	    ret.add(al.remove(  r.nextInt(al.size()))  );
 	}
-	System.out.println(ret);
+	System.out.println("ArrayList: "+ret);
     
-
 	//ARRAYS
-        int[] a = new int[7];
-	for (int i=0;i<7;i++){
+        int[] a = new int[customLength];
+	for (int i=0;i<a.length;i++){
 	    a[i]=i;
 	}
-	System.out.println(a);	
+	
+	for (int i=0;i<a.length;i++){
+	    int indexFirst = r.nextInt(a.length);
+	    int valueFirst = a[indexFirst];
+	    int indexSecond = r.nextInt(a.length);
+	    int valueSecond = a[indexSecond];
+	    a[indexSecond] = valueFirst;
+	    a[indexFirst] = valueSecond;
+	}	
+	
+	//printing the array
+	System.out.print("printing array: ");
+	for (int i=0;i<a.length;i++){
+	    System.out.print(a[i]+", ");
+	}
+	System.out.println();
     }
 }
