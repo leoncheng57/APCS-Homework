@@ -15,17 +15,10 @@ public class Driver{
 		System.out.println("removed this val: "+ai.remove(i));
 		System.out.println(i);
 	    }
-	    else {
+	    else { //the i++ is only in the else statement b/c we don't want i to change after removing an element - that would mean skipping one element because i keeps increasing while the elements all shift left one index
 		i++;
 	    }
 	}
 	System.out.println(ai);
-
-
-
-	//ai.add(99,99);
-	//ai.remove(99);
-	//ai.get(99);
-	//ai.set(99,99);
     }
 }
