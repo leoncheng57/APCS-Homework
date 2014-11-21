@@ -133,6 +133,38 @@ public class WordSearch{
 	addVerticalDown(w, row,  col);
     }
 
+
+    /* beginning to think about refactoring */
+    public void insert(String w, int row, int col, int rowChange, int colChange){
+	if (insertCheck(w,row,col,rowChange,colChange)){
+	    for (int i=0;i<w.length();i++){
+		board[row][col] = w.charAt(i);
+		row += rowChange;
+		col += colChange;
+	    }
+	}	
+    }
+
+    public boolean insertCheck(String w, int row, int col, int rowChange, int colChange){
+	int r = row;
+	int c = col;
+	boolean ret = true;
+	try{
+	    for (int i=0;i<w.length();i++){
+		if (!(board[r][c]=='.' || board[r][c]==w.charAt(i))){
+		    ret = false;
+		}
+		r += rowChange;
+		c += colChange;
+	    }
+	}
+	catch (Exception e){
+	    System.out.println("Failed: "+w+" at "+row+","+col);
+	}
+        if (!ret) System.out.println("Failed: "+w+" at "+row+","+col);
+	return ret;
+    }    
+
     /*----------------MAIN----------------*/
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
@@ -158,7 +190,18 @@ public class WordSearch{
 	w.checkVertical("bar" , 9999,22);
 	w.addVerticalDown("bar" , 1,22);
 	w.addVerticalUp("bar" , 9,22);
-	w.addVerticalUp("bar" , 10,22);
+	
+	//Testing  refactoring strategy
+	w.insert("bar" , 10,22,1,1);
+	w.insert("bar", 15,22,1,-1);
+	w.insert("bar",15,22,1,1);
+	w.insert("bar",15,22,-1,0);
+	w.insert("bar",15,22,0,-1);
+	
+	//line below crashes program
+	//w.insert("words",99,22,0,-1);
+
+	
 	System.out.println();
 	System.out.println(w);
 
