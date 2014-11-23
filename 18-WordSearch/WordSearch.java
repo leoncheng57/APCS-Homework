@@ -51,17 +51,9 @@ public class WordSearch{
     		c+=colChange;
     	    }
     	}catch (Exception e) {
-	    ans = false;
+	    return false;
 	}
-	if (ans == true){
-	    wordAdded = true;
-	    System.out.println("Added: "+w);
-	    return ans;
-	} else{
-	    wordAdded = false;
-	    System.out.println("Failed to add: "+w);
-	    return ans;
-	}
+	return ans;
     }
 
     public void insert(String w, int row, int col, int rowChange, int colChange){
@@ -71,16 +63,26 @@ public class WordSearch{
 		row += rowChange;
 		col += colChange;
 	    }
+	    wordAdded = true;
+	    System.out.println("Added: "+w);
 	}	
+	else{
+	    wordAdded = false;
+	    System.out.println("Failed to add: "+w);
+	}
     }
 
     public boolean addWord(String w){
-	char[][] copyboard = board;
 	Random rnd = new Random();
 	int row = rnd.nextInt(board.length);
 	int col = rnd.nextInt(board[0].length);
-	int rowChange = rnd.nextInt(3)-1;
-	int colChange = rnd.nextInt(3)-1;
+	int rowChange=0;
+	int colChange=0;
+	while (rowChange==0 && colChange==0){ //prevents the case where only one letter is inserted in one place because the both change == 0
+	    rowChange = rnd.nextInt(3)-1;
+	    colChange = rnd.nextInt(3)-1;
+	}
+	System.out.println(rowChange+","+colChange);
 	insert(w,row,col,rowChange,colChange);
 	return wordAdded;
     }
@@ -100,91 +102,16 @@ public class WordSearch{
 	// w.insert("plum",9,0,-1,0);
 	// w.insert("plum",8,20,0,-1);
 	// w.insert("words",99,22,0,-1);
+	//w.insert("bar",16,24,0,0); //puts just the last letter into board
+	
 	
 	// System.out.println(w.addWord("hola"));
 	// System.out.println(w.addWord("bueno"));
 	// System.out.println(w.addWord("estupendo"));
-	// System.out.println(w.addWord("hola"));
-	// System.out.println(w.addWord("bueno"));
-	// System.out.println(w.addWord("estupendo"));
-	// System.out.println(w.addWord("hola"));
-	// System.out.println(w.addWord("bueno"));
-	// System.out.println(w.addWord("estupendo"));
-	// System.out.println(w.addWord("hola"));
-	// System.out.println(w.addWord("bueno"));
-	// System.out.println(w.addWord("estupendo"));
-	// System.out.println(w.addWord("hola"));
-	// System.out.println(w.addWord("bueno"));
-	// System.out.println(w.addWord("estupendo"));
-	// System.out.println(w.addWord("hola"));
-	// System.out.println(w.addWord("bueno"));
-	// System.out.println(w.addWord("estupendo"));
-	// System.out.println(w.addWord("hola"));
-	// System.out.println(w.addWord("bueno"));
-	// System.out.println(w.addWord("estupendo"));
-	// System.out.println(w.addWord("hola"));
-	// System.out.println(w.addWord("bueno"));
-	// System.out.println(w.addWord("estupendo"));
-	// System.out.println(w.addWord("hola"));
-	// System.out.println(w.addWord("bueno"));
-	// System.out.println(w.addWord("hola"));
-	// System.out.println(w.addWord("bueno"));
-	// System.out.println(w.addWord("estupendo"));
-	
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
-	// System.out.println(w.addWord("defenestrate"));
+	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));
 
-
-	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));
 	
-	System.out.println(w.addWord("byE"));
-	
+	System.out.println(w.addWord("byE"));	
 	System.out.println(w.addWord("byE"));
 		
 	
