@@ -5,7 +5,7 @@ public class ReadFile {
 
     private String[] words;
 
-    public void getWords(){
+    public String[] getWords(){
 	return words;
     }
     

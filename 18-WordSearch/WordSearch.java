@@ -129,6 +129,8 @@ public class WordSearch{
 	System.out.println();
 	System.out.println(w);
 
-	
+
+	ReadFile rf = new Readfile();
+	System.out.println(rf.getWords);
     }
 }
