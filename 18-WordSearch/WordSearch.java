@@ -8,7 +8,7 @@ import java.util.*;
 import java.io.*;
 
 public class WordSearch{
-
+    
     /*------------------INSTANCE VARS-----------------*/
     private char[][] board;
     private boolean wordAdded;
@@ -33,7 +33,7 @@ public class WordSearch{
 	String s = "";
 	for (int i = 0; i < board.length; i++) {
 	    for (int j = 0; j < board[i].length; j++) {
-		s = s + board[i][j];
+		s = s + board[i][j]+" ";
 	    }
 	    s = s + "\n";
 	}
@@ -87,6 +87,18 @@ public class WordSearch{
 	return wordAdded;
     }
 
+    public void fillBoard(){
+	Random rnd = new Random();
+	String alphabet = "qwertyuiopasdfghjklzxcvbnm";
+	for (int i=0;i<board.length;i++){
+	    for (int j=0;j<board[i].length;j++){
+		if (board[i][j]=='.'){
+		    board[i][j] = alphabet.charAt( rnd.nextInt(alphabet.length())  ); 
+		}
+	    }
+	}
+	System.out.println(alphabet);
+    }	
     /*----------------MAIN----------------*/
     public static void main(String[] args) {
 	WordSearch w = new WordSearch();
@@ -110,11 +122,10 @@ public class WordSearch{
 	// System.out.println(w.addWord("estupendo"));
 	System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));System.out.println(w.addWord("hola"));
 
-	
-	System.out.println(w.addWord("byE"));	
-	System.out.println(w.addWord("byE"));
-		
-	
+    	System.out.println();
+	System.out.println(w);
+
+	w.fillBoard();
 	System.out.println();
 	System.out.println(w);
 

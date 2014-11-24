@@ -2,6 +2,13 @@ import java.io.*;
 import java.util.*;
 
 public class ReadFile {
+
+    private String[] words;
+
+    public void getWords(){
+	return words;
+    }
+    
     public static void main(String[] args) {
 	Scanner sc=null;
 	try {
