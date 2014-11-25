@@ -130,7 +130,7 @@ public class WordSearch{
 	System.out.println(w);
 
 
-	ReadFile rf = new Readfile();
-	System.out.println(rf.getWords);
+	ReadFile rf = new ReadFile();
+	System.out.println(rf.getWords());
     }
 }

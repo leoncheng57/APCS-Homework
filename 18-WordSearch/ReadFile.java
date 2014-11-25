@@ -3,7 +3,7 @@ import java.util.*;
 
 public class ReadFile {
 
-    private String[] words;
+    private String[] words = {"Hello","world"};
 
     public String[] getWords(){
 	return words;
