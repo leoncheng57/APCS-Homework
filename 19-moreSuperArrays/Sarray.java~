@@ -1,0 +1,123 @@
+public class Sarry{
+        
+    /*<----------------INSTANCE VARIABLES------------------->*/
+    private String[] data; // should be object[]
+    private int last; //last index of the list
+
+    /*<----------------METHODS AND CONSTRUCTOR------------------->*/
+    //This was a method that I decided to include
+    //prints the array in a readable fashion
+    //finds the number for last, changes last, prints last
+    public String toString(){
+	String ret = ""; 
+	for (int a=0;a<data.length;a++){
+    	    ret += +data[a]+", ";
+	}
+	ret+="\n";
+	int count = -1;
+	for (int a=0;a<data.length;a++){
+	    if (data[a]!=0){
+		count = a;
+	    }
+	}
+	last = count;	
+	ret+="last: "+last;
+	ret+="\n";
+	return ret;
+    }
+
+    //set up the initial instance variables
+    public Sarray() {
+	// start array at size 10, don't use 0
+	data = new String[10];
+    }
+
+    //adds an item to the end of the list, grow if needed, returns true
+    public boolean add (String s) {
+	//Note: The toString fxn usually needs to be run before this function, b/c this relies in the var last, which is updated in toString
+	if (last == data.length-1){
+	    //gotta create a new array with i as the last added element
+	    String[] newArray = new String[data.length+1];
+	    for (int a=0;a<data.length;a++){newArray[a]=data[a];}
+	    newArray[newArray.length-1] = s;
+	    data=newArray;
+	}
+	else {data[last+1]=s;}
+	return true;
+    }
+
+    //adds item s at index, shifting everything down as needed
+    //also grows as needed
+    //!!TODO:need to implement growing!!
+    public void add (int index, String s) {
+    	// inserts at location index - shift everything else down
+    	String[] newArray;
+	if (index<data.length){
+	    newArray=new String[data.length+1];
+	    for (int a=0;a<newArray.length;a++) {
+		if (a<index) {
+		    newArray[a]=data[a];
+		}
+		if (a==index) {
+		    newArray[a]=s;
+		}
+		if (a>index) {
+		    newArray[a]=data[a-1];
+		}
+	    }
+	}
+	else {
+	    newArray = new String[index+1];
+	    for (int a=0;a<data.length;a++){
+		newArray[a]=data[a];
+	    }
+	    newArray[index]=s;
+	}
+    	data = newArray;
+    }
+
+    //return the number of items in the list (not the array size)
+    public int size(){
+	int count = 0;
+	for (int a=0;a<data.length;a++){
+	    if (data[a]!=0){
+		count++;
+	    }
+	}
+	return count;
+    }
+
+    //returns the item at location index of the list
+    public String get (int index) {
+	return data[index];
+    }
+    
+    //sets the item at locaiton index to value i
+    //returns the old value
+    public String set (int index, int i) {
+	if (index>data.length){
+	    throw new ArrayIndexOutOfBoundsException();
+	    //throw new IndexOutOfBoundsException();
+	    //throw new ArithmeticException();
+	}
+	int ret = data[index];
+	data[index]=i;
+	return ret;
+    }
+        
+    //removes the item at index i
+    //returns the old value 
+    public String remove(int index){
+	int ret = data[index];
+	int[] newArray = new int[data.length-1];
+	// for(int a=0;a<newArray.length;a++){
+	//     if (a<index){newArray[a]=data[a];}
+	//     if (a>=index){newArray[a]=data[a+1];}
+	// }
+	int a=0;
+	for (a=a;a<index;a++){newArray[a]=data[a];}
+	for (a=a;a<newArray.length;a++){newArray[a]=data[a+1];}
+	data = newArray;
+	return ret;
+    }
+}
