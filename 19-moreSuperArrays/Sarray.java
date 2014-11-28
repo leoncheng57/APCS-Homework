@@ -4,7 +4,7 @@ public class Sarray{
     private String[] data; // should be object[]
     private int last; //last index of the list
 
-    /*<----------------METHODS AND CONSTRUCTOR------------------->*/
+    /*<----------------METHODS AND CONSTRUCTOR------------------->*/    
     //This was a method that I decided to include
     //prints the array in a readable fashion
     //finds the number for last, changes last, prints last
@@ -48,7 +48,6 @@ public class Sarray{
 
     //adds item s at index, shifting everything down as needed
     //also grows as needed
-    //!!TODO:need to implement growing!!
     public void add (int index, String s) {
     	// inserts at location index - shift everything else down
     	String[] newArray;
