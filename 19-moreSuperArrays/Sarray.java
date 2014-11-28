@@ -1,8 +1,8 @@
 public class Sarray{
         
     /*<----------------INSTANCE VARIABLES------------------->*/
-    private String[] data; // should be object[]
-    private int last; //last index of the list
+    public String[] data; // should be object[]
+    public  int last; //last index of the list
 
     /*<----------------METHODS AND CONSTRUCTOR------------------->*/    
     //This was a method that I decided to include
