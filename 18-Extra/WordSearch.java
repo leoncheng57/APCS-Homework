@@ -162,11 +162,12 @@ public class WordSearch{
 		wordsInPuzzle.add(word);
 	    }
 	}
-	ArrayList<String> WIP;
 	System.out.println(toString());
+	ArrayList<String> WIP;
 	for (int i=0;i<repeat;i++){
 	    clearBoard();
 	    WIP = wordsInPuzzle;
+	    System.out.println(wordsInPuzzle); //ERROR: wordsinpuzzle bcomes empty!!!!!
 	    while (WIP.size()>0){
 		String word = WIP.get(0);
 		if (addWord(word)){
