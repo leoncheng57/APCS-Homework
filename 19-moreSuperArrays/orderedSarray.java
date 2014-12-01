@@ -6,13 +6,13 @@ public class orderedSarray extends Sarray{
     
     //Note: this method will always make the length of data bigger
     public boolean add(String s){
-	String[] oldData = data;
-	for (int i=0;i<data.length;i++){
-	    if (data[i]==null){
+	String[] oldData = super.getData();
+	for (int i=0;i<super.getData().length;i++){
+	    if (super.getData()[i]==null){
 		super.add(i,s);
 		break;
 	    }
-	    if (s.compareTo(data[i])<0){
+	    if (s.compareTo(super.getData()[i])<0){
 		super.add(i,s);
 		break;
 	    }
@@ -22,7 +22,7 @@ public class orderedSarray extends Sarray{
     
     //takes away the String at index and inserts s in its proper place
     public String set (int index, String s) {
-    	if (index>data.length){
+    	if (index>super.getData().length){
     	    throw new ArrayIndexOutOfBoundsException();
     	    //throw new IndexOutOfBoundsException();
     	    //throw new ArithmeticException();

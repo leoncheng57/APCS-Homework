@@ -32,6 +32,16 @@ public class Sarray{
 	data = new String[10];
     }
 
+    public String[] getData(){
+	return data;
+    }
+
+    public void setData(int index, String s){
+	data[index] = s;
+    }
+
+
+    
     //adds an item to the end of the list, grow if needed, returns true
     public boolean add (String s) {
 	//Note: The toString fxn usually needs to be run before this function, b/c this relies in the var last, which is updated in toString

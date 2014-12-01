@@ -6,7 +6,6 @@ import java.io.*;
  *
  */
 public class WordSearch{
-
     private char[][] board,key;
     private ArrayList<String> words;
     private ArrayList<String> wordsInPuzzle;
@@ -15,35 +14,30 @@ public class WordSearch{
     public WordSearch(int r, int c){
 	rnd = new Random();
 	words = new ArrayList<String>();
-
 	Scanner sc = null;
-
 	try {
 	    sc = new Scanner(new File("words.txt"));
 	} catch (Exception e) {
 	    System.out.println("Can't open wordlist");
 	    System.exit(0);
 	}
-
 	while (sc.hasNext()){
 	    words.add(sc.next());
 	}
-
 	board = new char[r][c];
 	for (int i = 0; i < board.length; i++) {
 	    for (int j = 0; j < board[i].length; j++) {
 		board[i][j]='.';
 	    }
 	}
-	
     }
+
     public WordSearch(){
 	this(30,30);
     }
 
     public String toString(){
 	String s = "";
-				
 	for (int i = 0; i < board.length; i++) {
 	    for (int j = 0; j < board[i].length; j++) {
 		s = s + board[i][j];
@@ -52,11 +46,9 @@ public class WordSearch{
 	}
 	return s;
     }
-
 		
     public boolean addWordHelper(String w,int row, int col,int deltaRow, int deltaCol){
 	int r = row, c = col;
-				
 	for (int i=0;i<w.length();i++){
 	    try {
 		if (board[r][c]!='.' && board[r][c]!=w.charAt(i)){
@@ -68,10 +60,8 @@ public class WordSearch{
 	    r = r + deltaRow;
 	    c = c + deltaCol;
 	}
-
 	r = row;
 	c = col;
-
 	for (int i=0;i<w.length();i++){
 	    board[r][c] = w.charAt(i);
 	    r = r + deltaRow;
@@ -105,12 +95,10 @@ public class WordSearch{
     }
 		
     public void buildPuzzle(int numwords){
-
 	/*
 	  loop 
 	  take a random word out of the word list
 	  try to add it to the puzzle
-
 	*/
 	wordsInPuzzle = new ArrayList<String>();
 	while (numwords > 0){
@@ -131,7 +119,6 @@ public class WordSearch{
 		    String letters = "abcdefghijklmnopqrstuvwxyz";
 		    char letter = letters.charAt(rnd.nextInt(letters.length()));
 		    board[i][j]=letter;
-												
 		    /* method 1
 		       int offset = rnd.nextInt(26);
 		       board[i][j]=(char)((int)'a'+offset);
@@ -147,7 +134,6 @@ public class WordSearch{
 
     public String getKey() {
 	String s = "";
-				
 	for (int i = 0; i < key.length; i++) {
 	    for (int j = 0; j < key[i].length; j++) {
 		s = s + key[i][j];
@@ -156,12 +142,51 @@ public class WordSearch{
 	}
 	return s;
     }
+
+
+    public void clearBoard(){
+	for (int i=0;i<board.length;i++){
+	    for (int j=0;j<board[0].length;j++){
+		board[i][j] = '.';
+	    }
+	}
+    }
+    public void mostOverlap(int numwords, int repeat){
+	wordsInPuzzle = new ArrayList<String>();
+	while (numwords > 0){
+	    int wordIndex = rnd.nextInt(words.size());
+	    String word = words.get(wordIndex);
+	    if (addWord(word)) {
+		numwords--;
+		words.remove(wordIndex);
+		wordsInPuzzle.add(word);
+	    }
+	}
+	ArrayList<String> WIP;
+	System.out.println(toString());
+	for (int i=0;i<repeat;i++){
+	    clearBoard();
+	    WIP = wordsInPuzzle;
+	    while (WIP.size()>0){
+		String word = WIP.get(0);
+		if (addWord(word)){
+		    WIP.remove(0);
+		}
+	    }
+	    System.out.println(toString());
+	}
+    }
+    
+
+
+    /*------------------MAIN----------------*/
     public static void main(String[] args) {
 	WordSearch w = new WordSearch(10,40);
 	//System.out.println(w);
-	w.buildPuzzle(5);
+	//w.buildPuzzle(5);
 	//System.out.println(w);
 	//System.out.println(w.getWIP());
-	System.out.println(w.getKey());
+	//System.out.println(w.getKey());
+	w.mostOverlap(5,3);
     }
 }
