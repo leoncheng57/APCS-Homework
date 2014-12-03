@@ -144,7 +144,9 @@ public class WordSearch{
     }
 
 
-    //-------------------------ATTEMPTED TO RETURN THE BOARD WITH THE MOST OVERLAPPIGN WORDS
+    //-------------------------RETURNS THE BOARD WITH THE MOST OVERLAPPIGN WORDS
+    //The central method is mostOverlap, which takes a param numwords and a param repeat (which is the number of times a new board will be created to see if it has a greatest number of dots than the previous boards.
+    //return the board with the greatest number of dots
     public void clearBoard(){
 	for (int i=0;i<board.length;i++){
 	    for (int j=0;j<board[0].length;j++){
@@ -161,6 +163,15 @@ public class WordSearch{
 	}
 	return count;
     }
+    public char[][] copyBoard(char[][] sampleBoard){
+	char[][] ret = new char[sampleBoard.length][sampleBoard[0].length];
+	for (int i=0;i<sampleBoard.length;i++){
+	    for (int j=0;j<sampleBoard[0].length;j++){
+		ret[i][j] = sampleBoard[i][j];
+	    }
+	}	
+	return ret;
+    }
     public void mostOverlap(int numwords, int repeat){
 	Object[] storeBoards = new Object[repeat];
 
@@ -174,9 +185,7 @@ public class WordSearch{
 		wordsInPuzzle.add(word);
 	    }
 	}
-	storeBoards[0] = board;
-	System.out.println(toString());
-
+	
 	ArrayList<String> WIP = wordsInPuzzle;
 	for (int i=0;i<repeat;i++){
 	    clearBoard();
@@ -185,26 +194,15 @@ public class WordSearch{
 		    j++;
 		}
 	    }
+	    System.out.println(i);	    
 	    System.out.println(board);
 	    System.out.println(toString());
-	    System.out.println(i);
-	    if (i==1) {
-		final char[][] temp1 = board;  
-		storeBoards[1] = temp1;
-	    }
-	    if (i==2){
-		final char[][] temp2 = board;
-		storeBoards[2] = temp2;
-	    }
-	    if (i==3) {
-		final char[][] temp3 = board;
-		storeBoards[3] = temp3;
-	    }
+	    storeBoards[i] = copyBoard(board);
 	}
 	
 	for (int i=0;i<storeBoards.length;i++){
 	    System.out.println(storeBoards[i]);
-	    System.out.println(numOfDots((char[][])storeBoards[i]));
+	    System.out.println("Num of dots: " +numOfDots((char[][])storeBoards[i]));
 	}
 
 	char[][] winner = (char[][])storeBoards[0];
@@ -227,7 +225,7 @@ public class WordSearch{
 	//System.out.println(w);
 	//System.out.println(w.getWIP());
 	//System.out.println(w.getKey());
-	w.mostOverlap(40,3);
+	w.mostOverlap(20,5);
 	System.out.println(w);
     }
 }
