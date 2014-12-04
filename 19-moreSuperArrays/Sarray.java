@@ -128,22 +128,7 @@ public class Sarray{
     	for (a=a;a<newArray.length;a++){newArray[a]=data[a+1];}
     	data = newArray;
     	return ret;
-    }
-
-    public void shift(String n){
-	int i =0;
-	for (i=last; i>0 && n.compareTo(data[i-1])<0 ;i--){
-	    data[i]=data[i-1];
-	}
-	data[i]=n;
-    }
-    
-    // public void iSort(){
-    // 	for (int i=0;i<data.length;i++){
-	    
-    // 	}
-    // }
-    
+    }    
 
     /*-----------------MAIN-----------*/
     public static void main(String[] args){
@@ -166,16 +151,7 @@ public class Sarray{
 	System.out.println();
 	System.out.println();
 	System.out.println();
-	s.set(0,"hola");
-	System.out.println(s.add("a"));
+	s.set(0,"hola");		
 	System.out.println(s);
-	System.out.println(s.add("b"));
-	System.out.println(s);
-	System.out.println(s.add("c"));
-	System.out.println(s);
-	s.shift("b");
-	System.out.println(s);
-		
-
     }
 }

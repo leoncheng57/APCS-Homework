@@ -40,6 +40,9 @@ public class Sarray{
 	data[index] = s;
     }
 
+    public int getLast(){
+	return last;
+    }
 
     
     //adds an item to the end of the list, grow if needed, returns true
@@ -128,7 +131,46 @@ public class Sarray{
     	for (a=a;a<newArray.length;a++){newArray[a]=data[a+1];}
     	data = newArray;
     	return ret;
-    }    
+    }
+
+    public void shift(String n, int lastElement){
+	int i=0;
+	System.out.println("lastElement: "+lastElement);
+	System.out.println(i>0&&n.compareTo(data[i-1])<0);
+	
+	for (i=lastElement+1; i>0 && n.compareTo(data[i-1])<0 ;i--){
+	    System.out.println("i: "+i);
+	    System.out.println("n: "+n);
+	    System.out.println("comp: "+n.compareTo(data[i-1]));
+	    System.out.println("data[i]: "+data[i]);
+	    data[i]=data[i-1];
+	}
+	System.out.println("i: "+i);
+	data[i]=n;
+    }
+    
+    public void iSort(){
+	for (int index=0;index<data.length-1;index+=2){
+	    shift(data[index],index);
+	}
+    }
+    // public void iSort(){
+    // 	for (int last=0;last<data.length-1;last++){
+    // 	    String n=data[last+1];
+    // 	    int i=0;
+    // 	    System.out.println("last: "+last);
+    // 	    for (i=last+1; i>0 && n.compareTo(data[i-1])<0 ;i--){
+    // 		System.out.println("i: "+i);
+    // 		System.out.println("n: "+n);
+    // 		System.out.println("comp: "+n.compareTo(data[i-1]));
+    // 		System.out.println("data[i]: "+data[i]);
+    // 		data[i]=data[i-1];
+    // 	    }
+    // 	    System.out.println("i: "+i);
+    // 	    data[i]=n;
+    // 	}
+    // }
+    
 
     /*-----------------MAIN-----------*/
     public static void main(String[] args){
@@ -151,7 +193,19 @@ public class Sarray{
 	System.out.println();
 	System.out.println();
 	System.out.println();
-	s.set(0,"hola");		
-	System.out.println();
+	s.set(0,"hola");
+	System.out.println(s.add("a"));
+	System.out.println(s);
+	System.out.println(s.add("b"));
+	System.out.println(s);
+	System.out.println(s.add("c"));
+	System.out.println(s);
+	s.shift("ab",s.getLast());
+	System.out.println(s);
+	s.shift("c",s.getLast());
+	System.out.println(s);
+	s.iSort();
+	System.out.println(s);
+	
     }
 }

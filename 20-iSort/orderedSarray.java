@@ -1,4 +1,3 @@
-
 public class orderedSarray extends Sarray{
 
     public void add(int i, String s){
