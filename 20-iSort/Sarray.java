@@ -2,7 +2,7 @@ public class Sarray{
         
     /*<----------------INSTANCE VARIABLES------------------->*/
     public String[] data; // should be object[]
-    public  int last; //last index of the list
+    public int last; //last index of the list
 
     /*<----------------METHODS AND CONSTRUCTOR------------------->*/    
     //This was a method that I decided to include
@@ -14,13 +14,13 @@ public class Sarray{
     	    ret += data[a]+", ";
 	}
 	ret+="\n";
-	int count = -1;
-	for (int a=0;a<data.length;a++){
-	    if (data[a]!=null){
-		count = a;
-	    }
-	}
-	last = count;	
+	// int count = -1;
+	// for (int a=0;a<data.length;a++){
+	//     if (data[a]!=null){
+	// 	count = a;
+	//     }
+	// }
+	// last = count;	
 	ret+="last: "+last;
 	ret+="\n";
 	return ret;
@@ -56,6 +56,7 @@ public class Sarray{
 	    data=newArray;
 	}
 	else {data[last+1]=s;}
+	last++;
 	return true;
     }
 
@@ -141,89 +142,63 @@ public class Sarray{
 	data=newArray;
     }
 
-    public void shift(String n, int lastElement){
-	if (lastElement == data.length-1){ 
-	    extend();
-	}
-	int i=0;
-	System.out.println("lastElement: "+lastElement);
-	System.out.println(i>0&&n.compareTo(data[i-1])<0);
+    //NEEDS FIXING
+    // public void shift(String n, int lastElement){
+    // 	if (lastElement == data.length-1){ 
+    // 	    extend();
+    // 	}
+    // 	int i=0;
+    // 	System.out.println("lastElement: "+lastElement);
+    // 	System.out.println(i>0&&n.compareTo(data[i-1])<0);
 
-	for (i=lastElement+1; i>0 && n.compareTo(data[i-1])<0;i--) {
-	    System.out.println("i: "+i);
-	    System.out.println("n: "+n);
-	    System.out.println("comp: "+n.compareTo(data[i-1]));
-	    System.out.println("data[i]: "+data[i]);
-	    data[i]=data[i-1];
+    // 	for (i=lastElement+1; i>0 && n.compareTo(data[i-1])<0;i--) {
+    // 	    System.out.println("i: "+i);
+    // 	    System.out.println("n: "+n);
+    // 	    System.out.println("comp: "+n.compareTo(data[i-1]));
+    // 	    System.out.println("data[i]: "+data[i]);
+    // 	    data[i]=data[i-1];
+    // 	}
+    // 	System.out.println("i: "+i);
+    // 	data[i]=n;
+    // }
+    
+    // public void iSort(){
+    //  	for (int index=0;index<data.length-1;index+=2){
+    //  	    String temp = data[index];
+    // 	    System.out.println("temp: "+temp);
+    // 	    data[index]=null;
+    // 	    shift(temp,index);
+    // 	}
+    // }    
+
+    public void isort(){
+	String temp;
+	int i;
+	int index;
+	for(i = 0; i < data.length; i ++){
+	    temp = data[i];
+	    for(index = i;index > 0 && temp.compareTo(data[index - 1]) < 0; index --){
+		data[index] = data[index - 1];
+	    }
+	    data[index] = temp;
 	}
-	System.out.println("i: "+i);
-	data[i]=n;
     }
     
-    public void iSort(){
-     	for (int index=0;index<data.length-1;index+=2){
-     	    String temp = data[index];
-	    System.out.println("temp: "+temp);
-	    data[index]=null;
-	    shift(temp,index);
-    	}
-    }    
-
     /*-----------------MAIN-----------*/
     public static void main(String[] args){
 	Sarray s = new Sarray();
 	System.out.println(s);
-	s.add("hola");
+	System.out.println(s.add("abc"));
+	System.out.println(s.add("abc"));
 	System.out.println(s);
-	System.out.println(s.size());
-	s.add(4,"mundo");
-	System.out.println(s);
-	// s.add(99,"mundo");
+	// s.shift("ab",s.getLast());
 	// System.out.println(s);
-	System.out.println(s.size());
-	System.out.println();
-	System.out.println();
-	System.out.println(s.get(0));
-	System.out.println(s);
-	s.remove(0);
-	System.out.println(s);
-	System.out.println();
-	System.out.println();
-	System.out.println();
-	s.set(0,"hola");
-	System.out.println(s.add("a"));
-	System.out.println(s);
-	System.out.println(s.add("b"));
-	System.out.println(s);
-	System.out.println(s.add("c"));
-	System.out.println(s);
-	System.out.println(s.add("c"));
-	System.out.println(s);
-	System.out.println(s.add("c"));
-	System.out.println(s);
-	System.out.println(s.add("c"));
-	System.out.println(s);
-	System.out.println(s.add("c"));
-	System.out.println(s);
-	System.out.println(s.add("c"));
-	System.out.println(s);
-	System.out.println(s.add("c"));
-	System.out.println(s);
-	s.remove(1);
-	s.remove(1);
-	s.remove(1);
-	s.extend();
-	System.out.println(s);
-	s.extend();
-	System.out.println(s);
-	s.extend();
-	System.out.println(s);
-	s.shift("ab",s.getLast());
-	System.out.println(s);
-	s.shift("c",s.getLast());
-	System.out.println(s);
-	s.iSort();
-	System.out.println(s);
-	
+	// s.shift("c",s.getLast());
+	// System.out.println(s);
+	// s.isort();
+	// System.out.println(s);
+	// s.shift("a",s.getLast());
+	// System.out.println(s);
+		
     }
 }
