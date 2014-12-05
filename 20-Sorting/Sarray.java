@@ -156,7 +156,6 @@ public class Sarray{
     	    int i;
     	    for (i=j;i>0 && data[i-1].compareTo(newValue)>0;i--){
     		data[i]=data[i-1];
-    		System.out.println(i);
     	    }
     	    data[i]=newValue;
     	}
@@ -174,17 +173,19 @@ public class Sarray{
 
     public void ssort(){
 	for (int j=0;j<data.length;j++){
-	    String max = data[0];
-	    int maxIndex = 0;
+	    String min = data[j];
+	    int minIndex = j;
 	    for (int i=j;i<data.length;i++){
-		if (data[i].compareTo(max)>0){
-		    max = data[i];
-		    maxIndex = i;
+		if (data[i].compareTo(min)<0){
+		    min = data[i];
+		    minIndex = i;
 		}
 	    }
+	    //System.out.println("min: "+min);
+	    //System.out.println("j: "+j);
 	    String temp = data[j];
-	    data[j]=max;
-	    data[maxIndex] = temp;
+	    data[j]=min;
+	    data[minIndex] = temp;
 	}
     }
     

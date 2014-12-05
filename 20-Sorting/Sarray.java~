@@ -149,70 +149,57 @@ public class Sarray{
 	data=newArray;
     }
 
-    //NEEDS FIXING
-    // public void shift(String n, int lastElement){
-    // 	if (lastElement == data.length-1){ 
-    // 	    extend();
-    // 	}
-    // 	int i=0;
-    // 	System.out.println("lastElement: "+lastElement);
-    // 	System.out.println(i>0&&n.compareTo(data[i-1])<0);
-
-    // 	for (i=lastElement+1; i>0 && n.compareTo(data[i-1])<0;i--) {
-    // 	    System.out.println("i: "+i);
-    // 	    System.out.println("n: "+n);
-    // 	    System.out.println("comp: "+n.compareTo(data[i-1]));
-    // 	    System.out.println("data[i]: "+data[i]);
-    // 	    data[i]=data[i-1];
-    // 	}
-    // 	System.out.println("i: "+i);
-    // 	data[i]=n;
-    // }
-    
-    // public void iSort(){
-    //  	for (int index=0;index<data.length-1;index+=2){
-    //  	    String temp = data[index];
-    // 	    System.out.println("temp: "+temp);
-    // 	    data[index]=null;
-    // 	    shift(temp,index);
-    // 	}
-    // }    
-
+    //NOTE:problems arise when there is a null in the array (NullPointerException)        
     public void isort(){
-	String temp;
-	int i;
-	int index;
-	for(i = 0; i < data.length; i ++){
-	    temp = data[i];
-	    for(index = i;index > 0 && temp.compareTo(data[index - 1]) < 0; index --){
-		data[index] = data[index - 1];
+    	for (int j=0;j<data.length;j++){
+    	    String newValue = data[j];
+    	    int i;
+    	    for (i=j;i>0 && data[i-1].compareTo(newValue)>0;i--){
+    		data[i]=data[i-1];
+    		System.out.println(i);
+    	    }
+    	    data[i]=newValue;
+    	}
+    }
+
+    public String min(){
+	String winner = data[0];
+	for (int i=0;i<data.length;i++){
+	    if (data[i].compareTo(winner)>0){
+		winner = data[i];
 	    }
-	    data[index] = temp;
+	}
+	return winner;
+    }
+
+    public void ssort(){
+	for (int j=0;j<data.length;j++){
+	    String max = data[0];
+	    int maxIndex = 0;
+	    for (int i=j;i<data.length;i++){
+		if (data[i].compareTo(max)>0){
+		    max = data[i];
+		    maxIndex = i;
+		}
+	    }
+	    String temp = data[j];
+	    data[j]=max;
+	    data[maxIndex] = temp;
 	}
     }
     
-    /*-----------------MAIN-----------*/
+
+    /*-----------------MAIN------------------*/
     public static void main(String[] args){
 	Sarray s = new Sarray();
+	String[] wordsToAdd = {"hello","world","hola","mundo","a","sky","full","of","stars","clocks"};
+	for (int i=0;i<wordsToAdd.length;i++){
+	    s.add(wordsToAdd[i]);
+	}
 	System.out.println(s);
-	System.out.println(s.add("hello"));
-	System.out.println(s.add("world"));
-	System.out.println(s.add("hola"));
-	System.out.println(s.add("mundo"));
-	System.out.println(s.add("sky"));
-	System.out.println(s.add("full"));
-	System.out.println(s.add("of"));
-	System.out.println(s.add("stars"));
-	System.out.println(s.get(0));
-	System.out.println(s.remove(0));
-	System.out.println(s);	
-	System.out.println(s.size());
-	s.extend();	
-	System.out.println(s);	
-	System.out.println(s.set(s.getData().length-1, "last!"));	
-	System.out.println(s);		
-	s.add(0,"FIRST!");	
-	s.add(15,"LAST!");	
-	System.out.println(s);	
+	//s.isort();
+	s.ssort();
+	System.out.println(s);
+
     }
 }
