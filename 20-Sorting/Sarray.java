@@ -188,6 +188,24 @@ public class Sarray{
 	    data[minIndex] = temp;
 	}
     }
+
+    public void bsort(){
+	for (int repeat=0;repeat<data.length;repeat++){
+	    for(int j=0;j<data.length-1;j++){
+		String currentMax = data[j];
+		System.out.println("j: "+j);
+		System.out.println("data[j]: "+data[j]);
+		if (currentMax.compareTo(data[j+1])<0){ //new currentMax
+		    currentMax = data[j+1];
+		}
+		else{
+		    data[j]=data[j+1];
+		    data[j+1]=currentMax;
+		}
+	    }
+	}
+    }
+
     
 
     /*-----------------MAIN------------------*/
@@ -197,9 +215,11 @@ public class Sarray{
 	for (int i=0;i<wordsToAdd.length;i++){
 	    s.add(wordsToAdd[i]);
 	}
+	System.out.println((int)1.2);
 	System.out.println(s);
-	//s.isort();
-	s.ssort();
+	s.isort();
+	//s.ssort();
+	//s.bsort();
 	System.out.println(s);
 
     }
