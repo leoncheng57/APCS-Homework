@@ -2,8 +2,8 @@ public class Sarray{
         
     /*<----------------INSTANCE VARIABLES------------------->*/
     public String[] data; // should be object[]
-    public  int last; //last index of the list
-
+    public int last; //last index of the list
+    
     /*<----------------METHODS AND CONSTRUCTOR------------------->*/    
     //This was a method that I decided to include
     //prints the array in a readable fashion
@@ -14,13 +14,13 @@ public class Sarray{
     	    ret += data[a]+", ";
 	}
 	ret+="\n";
-	int count = -1;
-	for (int a=0;a<data.length;a++){
-	    if (data[a]!=null){
-		count = a;
-	    }
-	}
-	last = count;	
+	// int count = -1;
+	// for (int a=0;a<data.length;a++){
+	//     if (data[a]!=null){
+	//  	count = a;
+	//     }
+	// }
+	// last = count;	
 	ret+="last: "+last;
 	ret+="\n";
 	return ret;
@@ -30,6 +30,7 @@ public class Sarray{
     public Sarray() {
 	// start array at size 10, don't use 0
 	data = new String[10];
+	last = -1;
     }
 
     public String[] getData(){
@@ -40,19 +41,26 @@ public class Sarray{
 	data[index] = s;
     }
 
+    public int getLast(){
+	return last;
+    }
 
     
     //adds an item to the end of the list, grow if needed, returns true
     public boolean add (String s) {
-	//Note: The toString fxn usually needs to be run before this function, b/c this relies in the var last, which is updated in toString
 	if (last == data.length-1){
 	    //gotta create a new array with i as the last added element
 	    String[] newArray = new String[data.length+1];
-	    for (int a=0;a<data.length;a++){newArray[a]=data[a];}
+	    for (int a=0;a<data.length;a++){
+		newArray[a]=data[a];
+	    }
 	    newArray[newArray.length-1] = s;
 	    data=newArray;
 	}
-	else {data[last+1]=s;}
+	else {
+	    data[last+1]=s;
+	}
+	last++;
 	return true;
     }
 
@@ -74,6 +82,7 @@ public class Sarray{
 		    newArray[a]=data[a-1];
 		}
 	    }
+	    last++;
 	}
 	else {
 	    newArray = new String[index+1];
@@ -81,11 +90,12 @@ public class Sarray{
 		newArray[a]=data[a];
 	    }
 	    newArray[index]=s;
+	    last = index;
 	}
     	data = newArray;
     }
 
-    //return the number of items in the list (not the array size)
+    //return the number of items in the list (not counting null)
     public int size(){
     	int count = 0;
     	for (int a=0;a<data.length;a++){
@@ -127,55 +137,82 @@ public class Sarray{
     	for (a=a;a<index;a++){newArray[a]=data[a];}
     	for (a=a;a<newArray.length;a++){newArray[a]=data[a+1];}
     	data = newArray;
-    	return ret;
+    	last--;
+	return ret;
     }
 
-    public void shift(String n){
-	int i =0;
-	for (i=last; i>0 && n.compareTo(data[i-1])<0 ;i--){
-	    data[i]=data[i-1];
+    public void extend(){
+	String[] newArray = new String[data.length+1];
+	for (int i=0;i<data.length;i++){
+	    newArray[i]=data[i];
 	}
-	data[i]=n;
+	data=newArray;
     }
-    
-    // public void iSort(){
-    // 	for (int i=0;i<data.length;i++){
-	    
+
+    //NEEDS FIXING
+    // public void shift(String n, int lastElement){
+    // 	if (lastElement == data.length-1){ 
+    // 	    extend();
     // 	}
+    // 	int i=0;
+    // 	System.out.println("lastElement: "+lastElement);
+    // 	System.out.println(i>0&&n.compareTo(data[i-1])<0);
+
+    // 	for (i=lastElement+1; i>0 && n.compareTo(data[i-1])<0;i--) {
+    // 	    System.out.println("i: "+i);
+    // 	    System.out.println("n: "+n);
+    // 	    System.out.println("comp: "+n.compareTo(data[i-1]));
+    // 	    System.out.println("data[i]: "+data[i]);
+    // 	    data[i]=data[i-1];
+    // 	}
+    // 	System.out.println("i: "+i);
+    // 	data[i]=n;
     // }
     
+    // public void iSort(){
+    //  	for (int index=0;index<data.length-1;index+=2){
+    //  	    String temp = data[index];
+    // 	    System.out.println("temp: "+temp);
+    // 	    data[index]=null;
+    // 	    shift(temp,index);
+    // 	}
+    // }    
 
+    public void isort(){
+	String temp;
+	int i;
+	int index;
+	for(i = 0; i < data.length; i ++){
+	    temp = data[i];
+	    for(index = i;index > 0 && temp.compareTo(data[index - 1]) < 0; index --){
+		data[index] = data[index - 1];
+	    }
+	    data[index] = temp;
+	}
+    }
+    
     /*-----------------MAIN-----------*/
     public static void main(String[] args){
 	Sarray s = new Sarray();
 	System.out.println(s);
-	s.add("hola");
-	System.out.println(s);
-	System.out.println(s.size());
-	s.add(4,"mundo");
-	System.out.println(s);
-	// s.add(99,"mundo");
-	// System.out.println(s);
-	System.out.println(s.size());
-	System.out.println();
-	System.out.println();
+	System.out.println(s.add("hello"));
+	System.out.println(s.add("world"));
+	System.out.println(s.add("hola"));
+	System.out.println(s.add("mundo"));
+	System.out.println(s.add("sky"));
+	System.out.println(s.add("full"));
+	System.out.println(s.add("of"));
+	System.out.println(s.add("stars"));
 	System.out.println(s.get(0));
-	System.out.println(s);
-	s.remove(0);
-	System.out.println(s);
-	System.out.println();
-	System.out.println();
-	System.out.println();
-	s.set(0,"hola");
-	System.out.println(s.add("a"));
-	System.out.println(s);
-	System.out.println(s.add("b"));
-	System.out.println(s);
-	System.out.println(s.add("c"));
-	System.out.println(s);
-	s.shift("b");
-	System.out.println(s);
-		
-
+	System.out.println(s.remove(0));
+	System.out.println(s);	
+	System.out.println(s.size());
+	s.extend();	
+	System.out.println(s);	
+	System.out.println(s.set(s.getData().length-1, "last!"));	
+	System.out.println(s);		
+	s.add(0,"FIRST!");	
+	s.add(15,"LAST!");	
+	System.out.println(s);	
     }
 }
