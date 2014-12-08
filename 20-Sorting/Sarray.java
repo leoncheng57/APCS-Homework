@@ -211,7 +211,8 @@ public class Sarray{
     /*-----------------MAIN------------------*/
     public static void main(String[] args){
 	Sarray s = new Sarray();
-	String[] wordsToAdd = {"hello","world","hola","mundo","a","sky","full","of","stars","clocks"};
+	//String[] wordsToAdd = {"hello","world","hola","mundo","a","sky","full","of","stars","clocks"};
+	String[] wordsToAdd = {"hello","world","hola","mundo","a","sky","full","of","stars","clocks","hello","world","hola","mundo","a","sky","full","of","stars","clocks","hello","world","hola","mundo","a","sky","full","of","stars","clocks","hello","world","hola","mundo","a","sky","full","of","stars","clocks","hello","world","hola","mundo","a","sky","full","of","stars","clocks","hello","world","hola","mundo","a","sky","full","of","stars","clocks","hello","world","hola","mundo","a","sky","full","of","stars","clocks","hello","world","hola","mundo","a","sky","full","of","stars","clocks","hello","world","hola","mundo","a","sky","full","of","stars","clocks","hello","world","hola","mundo","a","sky","full","of","stars","clocks"};
 	for (int i=0;i<wordsToAdd.length;i++){
 	    s.add(wordsToAdd[i]);
 	}
