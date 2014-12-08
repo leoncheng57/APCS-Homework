@@ -191,7 +191,7 @@ public class Sarray{
 
     public void bsort(){
 	for (int repeat=0;repeat<data.length;repeat++){
-	    for(int j=0;j<data.length-1;j++){
+	    for(int j=0;j<data.length-1-repeat;j++){
 		String currentMax = data[j];
 		System.out.println("j: "+j);
 		System.out.println("data[j]: "+data[j]);
@@ -218,9 +218,9 @@ public class Sarray{
 	}
 	System.out.println((int)1.2);
 	System.out.println(s);
-	s.isort();
+	//s.isort();
 	//s.ssort();
-	//s.bsort();
+	s.bsort();
 	System.out.println(s);
 
     }
