@@ -76,6 +76,29 @@ class Sorts {
 	}
     }
 
+    
+    public void bsort(){
+	for (int repeat=0;repeat<data.length;repeat++){
+	    for(int j=0;j<data.length-1-repeat;j++){
+		int currentMax = data[j];
+		countA++;
+		countC++;
+		if (currentMax - (data[j+1])<0){ //new currentMax
+		    currentMax = data[j+1];
+		    countA++;
+		    countC++;
+		}
+		else{
+		    data[j]=data[j+1];
+		    data[j+1]=currentMax;
+		    countA++;
+		    countA++;
+		}
+	    }
+	}
+    }
+
+
     public void builtin() {
 	/* this sorts the whole array, if you want to sort only some of it
 	   you would write Arrays.sort(data,0,n) where n is the index beyond the 
@@ -100,8 +123,9 @@ class Sorts {
 	Sorts s = new Sorts();
 	System.out.println(s);
 	//s.builtin();
-	s.isort();
+	//s.isort();
 	//s.ssort();
+	s.bsort();
 	System.out.println(s);
     }
 }

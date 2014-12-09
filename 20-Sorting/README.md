@@ -16,6 +16,8 @@ countC=similar (ex. 90)
 
 
 
-
 Bubble sort
 -------------
+speed = slowest
+countA = similar (ex. 270)
+countC = similar (ex. 490)
