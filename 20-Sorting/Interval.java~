@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.*;
+
+public class Interval {
+    private int high;
+    private int low;
+
+    //CONSTRUCTOR
+    public Interval{
+	Random r = new Random();
+	low = r.nextInt(100);
+	high = r.nextInt(100)+low+1;
+	
+    }
+
+    public static main void(String[] args){
+
+    }
+}
