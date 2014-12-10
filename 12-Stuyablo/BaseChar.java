@@ -3,8 +3,13 @@
 import java.util.*;
 import java.io.*;
 
-public class BaseChar extends Mob{
+public class BaseChar extends Mob implements Comparable{
 
+    public int compareto(Object other){
+	BaseChar o = (BaseChar)other;
+	return (int)this.name - (int)o.name;
+    }
+    
 /*
 	public BaseChar(int h, String s, int l, int atkdmg, int dex, int spd){
 		super.health = h;
