@@ -29,6 +29,14 @@ public class sortingTest{
 	Arrays.sort(a);
 	System.out.println(Arrays.toString(a));
 	
-
+	//just some practice with sorting arraylists
+	ArrayList<Integer> al = new ArrayList<Integer>();
+	System.out.println(al);
+	al.add(1);
+	al.add(1231231);
+	al.add(1231);
+	al.add(112);
+	Collections.sort(al);
+	System.out.println(al);
     }
 }
