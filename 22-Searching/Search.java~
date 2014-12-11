@@ -1,0 +1,15 @@
+public class Search{
+    public Comparable isearch(ArrayList<Comparable> a,int value){
+
+  
+    }
+
+    public static void main(String[] args){
+	Search
+    }
+}
+
+/*
+  search should return the value it found (also the place of it?)
+  return null if not found
+*/
