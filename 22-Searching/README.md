@@ -2,7 +2,7 @@ NOTE ON THIS FOLDER
 =====================
 moreAdvanced folder
 ------------------------
-the folder moreAdvanced contains code that includes ability to change the array and more methods to change the array of Comparables
+the folder _moreAdvanced_ contains code that includes ability to change the array and more methods to change the array of Comparables
 
 note in moreAdvanced folder
 --------------------------
