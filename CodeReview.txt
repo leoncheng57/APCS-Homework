@@ -1,0 +1,18 @@
+Code Review
+===========
+
+Project Location
+=================
+https://github.com/blehw/apcs-finalproj/tree/master/pokemon
+
+
+Comments (FileName LineNumber) 
+==========
+- (Battle.java 11) you might want to change the name of var "r" to "rnd" in case you have something else that starts with r. Also, naming it "rnd" will make it easier to search through the code for it using ctrl-f
+- (BaseChar.java) you might want to make the vars private, so they are easier to access
+- (BaseChar.java) var name "PP" is not clear
+- (BaseChar.java 72) getMoves# seems to be excessive and unnecesary, you could just have a get method to return the array moves and then specify which index in that array
+- (Driver.java) I guess you'll eventually make this run the code
+- (Move.java) File is empty so far
+- (Pokemon.java) Will this be the file to run the program or will it be Driver.java?
+- (Move.java) Since tackle and recover both extend move, you might want to try making more methods or vars in move, so that you can easily extend those and write less code for the tackle and recover files
